@@ -16,5 +16,5 @@ jobs:
           git config user.email "<>"
       - run: git fetch origin ${{ github.event.pull_request.head.ref }}
       - run: git checkout ${{ github.event.pull_request.head.ref }}
-      - run: git tag -a echo '${{ github.event.pull_request.head.ref }}' | sed -e 's/release\///' -e 's/hotfix\///' -m "${{ github.event.pull_request.title }}"
-      - run: git push origin echo '${{ github.event.pull_request.head.ref }}' | sed -e 's/release\///' -e 's/hotfix\///'
+      - run: git tag -a `echo '${{ github.event.pull_request.head.ref }}' | sed -e 's/release\///' -e 's/hotfix\///'` -m "${{ github.event.pull_request.title }}"
+      - run: git push origin `echo '${{ github.event.pull_request.head.ref }}' | sed -e 's/release\///' -e 's/hotfix\///'`
