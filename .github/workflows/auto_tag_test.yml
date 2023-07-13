@@ -2,7 +2,7 @@ name: Auto Tag Push
 on:
   pull_request:
     branches:
-      - master
+      - test
     types:
         - closed
 jobs:
