@@ -1,0 +1,11 @@
+# 略
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+       - run: exit 1
+     
+      - uses: actions/checkout@v2
+# 略      
