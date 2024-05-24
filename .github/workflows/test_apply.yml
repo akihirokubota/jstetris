@@ -2,42 +2,15 @@ name: App Deploy
 
 on:
   workflow_dispatch:
-    inputs:
-      target-env:
-        type: choice
-        required: true
-        description: デプロイ先の環境
-        options:
-          - "evaluation"
-          - "staging"
-      branch:
-        required: true
-        description: デプロイ対象のブランチ
-        default: development
-
-permissions:
-  id-token: write 
-  contents: read 
 
 jobs:
-  deploy:
-    name: test
+  print-secret-token:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.inputs.branch }}
-          
-      - name: test
-        id: test
-        uses: ./.github/actions/test
-
-
-
-
+      - name: Add Mask
+        run: echo "::add-mask::${{ secrets.TEST }}"
+      - name: Echo a secret  
+        run: echo "your secret token is ${{ secrets.TEST }}"
 
 
         
