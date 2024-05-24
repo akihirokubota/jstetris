@@ -1,0 +1,18 @@
+name: test
+description: aaa
+
+inputs:
+  service-names:
+    required: true
+    description: aaa
+
+runs:
+  using: composite
+
+  steps:
+    - name: Login to Amazon ECR
+      run: echo secret "${{secrets.TEST }}"
+
+
+
+      
