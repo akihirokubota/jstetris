@@ -3,7 +3,8 @@ description: aaa
 
 inputs:
   service-names:
-    required: true
+    default: "true"
+    required: false
     description: aaa
 
 runs:
